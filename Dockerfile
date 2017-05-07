@@ -1,9 +1,5 @@
 FROM	debian:jessie
 
-ENV	BERKELEY_DB_MAJOR_VERSION 4.8	
-ENV	BERKELEY_DB_VERSION $BERKELEY_DB_MAJOR_VERSION.30
-ENV	BERKELEY_DB_HOME /usr/local/BerkeleyDB.$BERKELEY_DB_MAJOR_VERSION
-
 RUN	apt-get update \
 	&& apt-get install -y \
 		autoconf \
@@ -19,6 +15,10 @@ RUN	apt-get update \
 		libssl-dev \
 		libtool \
 	&& rm -rf /var/lib/apt/lists/*
+
+ENV	BERKELEY_DB_MAJOR_VERSION 4.8
+ENV	BERKELEY_DB_VERSION $BERKELEY_DB_MAJOR_VERSION.30
+ENV	BERKELEY_DB_HOME /usr/local/BerkeleyDB.$BERKELEY_DB_MAJOR_VERSION
 
 RUN	curl -SLO http://download.oracle.com/berkeley-db/db-$BERKELEY_DB_VERSION.NC.tar.gz \
 	&& tar -xzf db-$BERKELEY_DB_VERSION.NC.tar.gz \
