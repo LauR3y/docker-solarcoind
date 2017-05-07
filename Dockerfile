@@ -47,8 +47,8 @@ WORKDIR	/solarcoin
 
 COPY docker-entrypoint.sh /
 
-EXPOSE	18181
+EXPOSE	18181 18188
 
 ENTRYPOINT	["/docker-entrypoint.sh"]
-CMD	["/usr/local/bin/solarcoind", "-datadir=/solarcoin", "-rpcport=18181"]
+CMD	["/usr/local/bin/solarcoind", "-datadir=/solarcoin", "-rpcport=18181", "-port=18188"]
 
