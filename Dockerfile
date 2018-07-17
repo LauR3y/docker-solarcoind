@@ -33,6 +33,7 @@ RUN	curl -SLO http://download.oracle.com/berkeley-db/db-$BERKELEY_DB_VERSION.NC.
 RUN	export CPATH="$BERKELEY_DB_HOME/include" \
 	&& export LIBRARY_PATH="$BERKELEY_DB_HOME/lib" \
 	&& git clone https://github.com/onsightit/solarcoin.git \
+	&& git checkout ef89c104ca6e7a0547703bcc1aa3ae19a6c9decf \
 	&& cd solarcoin/src \
 	&& make -f makefile.unix \
 	&& strip solarcoind \
